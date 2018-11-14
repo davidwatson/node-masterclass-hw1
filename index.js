@@ -50,7 +50,7 @@ const httpServer = http.createServer((req, res) => {
       query: query,
       headers: headers,
       requestBody: requestBody
-    }
+    };
 
     /**
      * Send the response to the client.
@@ -68,7 +68,7 @@ const httpServer = http.createServer((req, res) => {
       res.setHeader('Content-Type', 'application/json');
       res.writeHead(resStatus);
       res.end(resBody);
-    }
+    };
 
     // When we receive a request, route it, and send the appropriate response.
     const {responseBody, responseStatus} = router.route(path, data, method);
