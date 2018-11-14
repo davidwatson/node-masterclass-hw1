@@ -62,9 +62,9 @@ const httpServer = http.createServer((req, res) => {
       // Return 500 with an error if we receive a non-number status
       const isValidStatus = typeof(status) === 'number';
       const resStatus = isValidStatus ? status : 500;
-      const resBody = isValidStatus ?
-        (typeof(body) === 'string' ? body : JSON.stringify(body)) :
-        { error: 'Internal Server Error', message: 'A non-numeric HTTP status code was returned.' };
+      const bodyStr = typeof(body) === 'string' ? body : JSON.stringify(body);
+      // TODO: Consider a class to encapsulate message behavior.
+      const resBody = isValidStatus ? bodyStr : { statusCode: 500, error: 'Internal Server Error', message: 'A non-numeric HTTP status code was returned.' };
       res.setHeader('Content-Type', 'application/json');
       res.writeHead(resStatus);
       res.end(resBody);
