@@ -61,7 +61,7 @@ Issues a greeting, optionally addressed to a named individual.
   Defaults to 'friend'. Note that invalid JSON will be discarded, causing the
   API to revert to the default behavior.
 
-## Response Body Parameters
+### Response Body Parameters
 
 * statusCode (number) - The HTTP status code.
 
